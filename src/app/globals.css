@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Placemet of Sections */
   .center {
     @apply flex justify-center items-center h-screen bg-amber-200;
   }
@@ -23,6 +24,7 @@
   .h5 {
     @apply text-[16px] leading[24px] font-bold;
   }
+
   /* Sub-Title */
   .subtitle-1 {
     @apply text-[16px] leading-[24px] font-medium;
@@ -37,5 +39,14 @@
   }
   .body-2 {
     @apply text-[14px] leading-[20px] font-normal;
+  }
+  .button {
+    @apply text-[14px] leading-[20px] font-medium;
+  }
+  .caption {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+  .overline {
+    @apply text-[10px] leading-[14px] font-normal;
   }
 }
