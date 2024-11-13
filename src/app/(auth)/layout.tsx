@@ -29,16 +29,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </section>
       <section className="flex flex-1 flex-col items-center bg-white p-4 py-10 lg:justify-center lg:p-10 lg-py-10">
-        <div className="mb-16 ">
-          <Image
-            src={"/Logo.png"}
-            alt="Logo image"
-            width={44}
-            height={24}
-            className="h-auto w-[80px] lg:w-[100px]"
-          />
-          {children}
-        </div>
+        <div className="mb-16 ">{children}</div>
       </section>
     </div>
   );
