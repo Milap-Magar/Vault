@@ -7,7 +7,13 @@ import { navItems } from "../../constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const Siderbar = () => {
+interface Props {
+  fullName: string;
+  avatar: string;
+  email: string;
+}
+
+const Siderbar = ({ fullName, avatar, email }: Props) => {
   const pathName = usePathname();
   return (
     <aside className="sidebar">
@@ -53,6 +59,27 @@ const Siderbar = () => {
           ))}
         </ul>
       </nav>
+
+      <Image
+        src="/Image/Illustration1.png"
+        alt="logo"
+        width={506}
+        height={418}
+        className="w-full"
+      />
+      <div className="sidebar-user-info">
+        <Image
+          src={avatar}
+          alt="Avatar"
+          width={44}
+          height={44}
+          className="sidebar-user-avatar"
+        />
+        <div className="hidden lg:block">
+          <p className="subtitle-2 capitalize">{fullName}</p>
+          <p className="caption">{email}</p>
+        </div>
+      </div>
     </aside>
   );
 };
