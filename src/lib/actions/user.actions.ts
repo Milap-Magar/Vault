@@ -23,6 +23,7 @@ const handleError = (error: unknown, message: string) => {
   console.log(error, message);
   throw error;
 };
+
 export const sendEmailOTP = async ({ email }: { email: string }) => {
   const { account } = await createAdminClient();
 
@@ -34,6 +35,7 @@ export const sendEmailOTP = async ({ email }: { email: string }) => {
     handleError(error, "Failed to send Email OTP!");
   }
 };
+
 export const createAccount = async ({
   fullName,
   email,
@@ -116,5 +118,18 @@ export const signOutUser = async () => {
     handleError(error, "Failed to sign out user");
   } finally {
     redirect("/sign-in");
+  }
+};
+
+export const signInUser = async ({ email }: { email: string }) => {
+  try {
+    const existingUser = await getUserByEmail(email);
+    if (existingUser) {
+      await sendEmailOTP({ email });
+      return parseStringify({ accountId: existingUser.accountId });
+    }
+    return parseStringify({ accountId: null, error: "Account not found" });
+  } catch (error) {
+    handleError(error, "Failed to sign in user");
   }
 };

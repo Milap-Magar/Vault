@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -40,7 +39,7 @@ const MobileNavigation = ({
   return (
     <header className="mobile-header">
       <Image
-        src="/Image/Logo.png"
+        src="/assets/image/Logo.png"
         alt="logo-image"
         width={80}
         height={42}
@@ -48,7 +47,7 @@ const MobileNavigation = ({
       />
       <Sheet open={open} onOpenChange={setOepn}>
         <SheetTrigger>
-          <Image src="/Icon/menu.svg" alt="Menu-icon" width={30} height={30} />
+          <Image src="/assets/icon/menu.svg" alt="Menu-icon" width={30} height={30} />
         </SheetTrigger>
         <SheetContent className="shad-sheet h-scren px-3">
           <SheetTitle>
@@ -102,7 +101,7 @@ const MobileNavigation = ({
               onClick={async () => await signOutUser()}
             >
               <Image
-                src="/icon/logout.svg"
+                src="/assets/icon/logout.svg"
                 alt="submit button"
                 width={24}
                 height={24}
