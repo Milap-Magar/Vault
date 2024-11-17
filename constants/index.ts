@@ -1,9 +1,9 @@
 export const navItems = [
-  { name: "Dashboard", icon: "/Icon/dashboard.svg", url: "/" },
-  { name: "Documents", icon: "/Icon/documents.svg", url: "/documents" },
-  { name: "Images", icon: "/Icon/images.svg", url: "/images" },
-  { name: "Media", icon: "/Icon/video.svg", url: "/media" },
-  { name: "Others", icon: "/Icon/others.svg", url: "/others" },
+  { name: "Dashboard", icon: "/assets/icon/dashboard.svg", url: "/" },
+  { name: "Documents", icon: "/assets/icon/documents.svg", url: "/documents" },
+  { name: "Images", icon: "/assets/icon/images.svg", url: "/images" },
+  { name: "Media", icon: "/assets/icon/video.svg", url: "/media" },
+  { name: "Others", icon: "/assets/icon/others.svg", url: "/others" },
 ];
 
 export const avatarPlaceholderUrl =
