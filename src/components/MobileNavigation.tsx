@@ -47,7 +47,12 @@ const MobileNavigation = ({
       />
       <Sheet open={open} onOpenChange={setOepn}>
         <SheetTrigger>
-          <Image src="/assets/icon/menu.svg" alt="Menu-icon" width={30} height={30} />
+          <Image
+            src="/assets/icon/menu.svg"
+            alt="Menu-icon"
+            width={30}
+            height={30}
+          />
         </SheetTrigger>
         <SheetContent className="shad-sheet h-scren px-3">
           <SheetTitle>
@@ -94,7 +99,7 @@ const MobileNavigation = ({
           </nav>
           <Separator className="my-5 bg-light-200/20" />
           <div className="flex flex-col justify-between gap-5 pb-5">
-            <FileUploader />
+            <FileUploader ownerId={ownerId} accountId={accountId} />
             <Button
               type="submit"
               className="mobile-sign-out-button"
