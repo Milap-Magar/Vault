@@ -59,6 +59,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
     },
     [ownerId, accountId, path]
   );
+  // console.log("🚀 ~ FileUploader ~ accountId:", accountId);
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 

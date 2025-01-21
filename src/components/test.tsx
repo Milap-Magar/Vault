@@ -13,7 +13,6 @@ const handleError = (error: unknown, message: string) => {
   throw error;
 };
 
-// BUG AND ISSUES HERE -->
 export const uploadFile = async ({
   file,
   ownerId,
@@ -22,13 +21,8 @@ export const uploadFile = async ({
 }: UploadFileProps) => {
   const { storage, databases } = await createAdminClient();
 
-  // console.log("🚀 ~ databases:", databases);
-  // console.log("🚀 ~ storage:", storage);
-  // console.log("Account Id: " + databases);
-
   try {
     const inputFile = InputFile.fromBuffer(file, file.name);
-    // console.log("🚀 ~ inputFile:", inputFile);
 
     const bucketFile = await storage.createFile(
       appwriteConfig.bucketId,
@@ -37,16 +31,15 @@ export const uploadFile = async ({
     );
 
     const fileDocument = {
+      type: getFileType(bucketFile.name).type,
       name: bucketFile.name,
       url: constructFileUrl(bucketFile.$id),
-      type: getFileType(bucketFile.name).type,
-      // bucketFileId: bucketFile.$id,
-      bucketField: "files",
-      accountId,
-      owner: ownerId,
       extension: getFileType(bucketFile.name).extension,
       size: bucketFile.sizeOriginal,
+      owner: ownerId,
+      accountId,
       users: [],
+      bucketFileId: bucketFile.$id,
     };
 
     const newFile = await databases
@@ -96,6 +89,7 @@ const createQueries = (
 
   return queries;
 };
+
 export const getFiles = async ({
   types = [],
   searchText = "",
@@ -117,7 +111,7 @@ export const getFiles = async ({
       queries
     );
 
-    // console.log({ files });
+    console.log({ files });
     return parseStringify(files);
   } catch (error) {
     handleError(error, "Failed to get files");
@@ -199,6 +193,7 @@ export const deleteFile = async ({
   }
 };
 
+// ============================== TOTAL FILE SPACE USED
 export async function getTotalSpaceUsed() {
   try {
     const { databases } = await createSessionClient();
