@@ -58,7 +58,7 @@ const OTPModal = ({
           <AlertDialogTitle className="h2 text-center">
             Enter your OTP
             <Image
-              src="/icon/close-dark.svg"
+              src="/assets/icon/close-dark.svg"
               alt="close btn"
               width={20}
               height={20}
@@ -91,7 +91,7 @@ const OTPModal = ({
               Submit
               {isLoading && (
                 <Image
-                  src="/icon/Loader.svg"
+                  src="/assets/icon/Loader.svg"
                   alt="submit btn"
                   width={24}
                   height={24}

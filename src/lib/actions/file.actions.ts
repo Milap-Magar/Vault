@@ -13,7 +13,6 @@ const handleError = (error: unknown, message: string) => {
   throw error;
 };
 
-// BUG AND ISSUES HERE -->
 export const uploadFile = async ({
   file,
   ownerId,
@@ -35,18 +34,19 @@ export const uploadFile = async ({
       ID.unique(),
       inputFile
     );
+    console.log("🚀 ~ bucketFile:", bucketFile);
 
     const fileDocument = {
       name: bucketFile.name,
       url: constructFileUrl(bucketFile.$id),
       type: getFileType(bucketFile.name).type,
-      // bucketFileId: bucketFile.$id,
-      bucketField: "files",
+      bucketField: bucketFile.$id,
       accountId,
       owner: ownerId,
       extension: getFileType(bucketFile.name).extension,
       size: bucketFile.sizeOriginal,
       users: [],
+      // bucketField: "files",
     };
 
     const newFile = await databases
@@ -96,6 +96,7 @@ const createQueries = (
 
   return queries;
 };
+
 export const getFiles = async ({
   types = [],
   searchText = "",
@@ -176,9 +177,10 @@ export const updateFileUsers = async ({
 
 export const deleteFile = async ({
   fileId,
-  bucketFileId,
+  bucketField,
   path,
 }: DeleteFileProps) => {
+  // console.log("🚀 ~ fileId:", fileId);
   const { databases, storage } = await createAdminClient();
 
   try {
@@ -189,7 +191,7 @@ export const deleteFile = async ({
     );
 
     if (deletedFile) {
-      await storage.deleteFile(appwriteConfig.bucketId, bucketFileId);
+      await storage.deleteFile(appwriteConfig.bucketId, bucketField);
     }
 
     revalidatePath(path);

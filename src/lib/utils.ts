@@ -117,21 +117,21 @@ export const getFileIcon = (
   switch (extension) {
     // Document
     case "pdf":
-      return "/assets/icons/file-pdf.svg";
+      return "/assets/icon/file-pdf.svg";
     case "doc":
-      return "/assets/icons/file-doc.svg";
+      return "/assets/icon/file-doc.svg";
     case "docx":
-      return "/assets/icons/file-docx.svg";
+      return "/assets/icon/file-docx.svg";
     case "csv":
-      return "/assets/icons/file-csv.svg";
+      return "/assets/icon/file-csv.svg";
     case "txt":
-      return "/assets/icons/file-txt.svg";
+      return "/assets/icon/file-txt.svg";
     case "xls":
     case "xlsx":
-      return "/assets/icons/file-document.svg";
+      return "/assets/icon/file-document.svg";
     // Image
     case "svg":
-      return "/assets/icons/file-image.svg";
+      return "/assets/icon/file-image.svg";
     // Video
     case "mkv":
     case "mov":
@@ -142,7 +142,7 @@ export const getFileIcon = (
     case "webm":
     case "m4v":
     case "3gp":
-      return "/assets/icons/file-video.svg";
+      return "/assets/icon/file-video.svg";
     // Audio
     case "mp3":
     case "mpeg":
@@ -154,20 +154,20 @@ export const getFileIcon = (
     case "m4a":
     case "aiff":
     case "alac":
-      return "/assets/icons/file-audio.svg";
+      return "/assets/icon/file-audio.svg";
 
     default:
       switch (type) {
         case "image":
-          return "/assets/icons/file-image.svg";
+          return "/assets/icon/file-image.svg";
         case "document":
-          return "/assets/icons/file-document.svg";
+          return "/public/assets/icon/file-document.svg";
         case "video":
-          return "/assets/icons/file-video.svg";
+          return "/assets/icon/file-video.svg";
         case "audio":
-          return "/assets/icons/file-audio.svg";
+          return "/assets/icon/file-audio.svg";
         default:
-          return "/assets/icons/file-other.svg";
+          return "/assets/icon/file-other.svg";
       }
   }
 };
@@ -189,14 +189,14 @@ export const getUsageSummary = (totalSpace: any) => {
       title: "Documents",
       size: totalSpace.document.size,
       latestDate: totalSpace.document.latestDate,
-      icon: "/assets/icons/file-document-light.svg",
+      icon: "/assets/icon/file-document-light.svg",
       url: "/documents",
     },
     {
       title: "Images",
       size: totalSpace.image.size,
       latestDate: totalSpace.image.latestDate,
-      icon: "/assets/icons/file-image-light.svg",
+      icon: "/assets/icon/file-image-light.svg",
       url: "/images",
     },
     {
@@ -206,14 +206,14 @@ export const getUsageSummary = (totalSpace: any) => {
         totalSpace.video.latestDate > totalSpace.audio.latestDate
           ? totalSpace.video.latestDate
           : totalSpace.audio.latestDate,
-      icon: "/assets/icons/file-video-light.svg",
+      icon: "/assets/icon/file-video-light.svg",
       url: "/media",
     },
     {
       title: "Others",
       size: totalSpace.other.size,
       latestDate: totalSpace.other.latestDate,
-      icon: "/assets/icons/file-other-light.svg",
+      icon: "/assets/icon/file-other-light.svg",
       url: "/others",
     },
   ];

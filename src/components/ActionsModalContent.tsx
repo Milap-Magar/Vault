@@ -1,4 +1,4 @@
-import React, { SetStateAction } from "react";
+import React from "react";
 
 import { Models } from "node-appwrite";
 import Thumbnail from "./Thumbnail";
@@ -26,13 +26,14 @@ const DetailRow = ({ label, value }: { label: string; value: string }) => (
 );
 
 export const FileDetails = ({ file }: { file: Models.Document }) => {
+  // console.log("🚀 ~ FileDetails ~ file:", file);
   return (
     <>
       <ImageThumbnail file={file} />
       <div className="space-y-4 px-2 pt-2">
         <DetailRow label="Format:" value={file.extension} />
         <DetailRow label="Size:" value={convertFileSize(file.size)} />
-        <DetailRow label="Owner:" value={file.Owner.fullName} />
+        <DetailRow label="Owner:" value={file.owner.fullName} />
         <DetailRow label="Last edit:" value={formatDateTime(file.$updatedAt)} />
       </div>
     </>
