@@ -7,7 +7,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <section className="bg-brand p-10 hidden w-1/2 items-center justify-center lg:flex xl:w-2/5">
         <div className="flex max-h-[800px] max-w-[430px] flex-col justify-center space-y-12">
           <Image
-            src="/Logo.png"
+            src="/assets/image/Logo.png"
             alt="Logo"
             width={124}
             height={84}
@@ -20,7 +20,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             </p>
           </div>
           <Image
-            src="/Illustration1.png"
+            src="/assets/image/Illustration1.png"
             alt="Files"
             width={242}
             height={242}
