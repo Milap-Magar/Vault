@@ -8,7 +8,11 @@ import {
   Lock,
   Database,
   ChevronRight,
-  Search,
+  Twitter,
+  Facebook,
+  Instagram,
+  Github,
+  Linkedin,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 
@@ -30,7 +34,8 @@ export default function Landing() {
               Where <span className="text-purple-600">Work</span> Happens
             </h1>
             <p className="text-lg text-purple-600 max-w-2xl mx-auto mb-8">
-              Share it. Discuss it. Save it. Secure it
+              Encrypt it. <span className="text-black">Share it.</span> Secure
+              it. <span className="text-black">Save it.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button className="bg-purple-800 hover:bg-purple-900 text-white px-8 py-6 text-base">
@@ -467,18 +472,24 @@ export default function Landing() {
                 most valuable assets.
               </p>
               <div className="flex space-x-4">
-                {["twitter", "facebook", "instagram", "github", "linkedin"].map(
-                  (social) => (
-                    <Link
-                      key={social}
-                      href="#"
-                      className="text-slate-400 hover:text-white"
-                    >
-                      <span className="sr-only">{social}</span>
-                      <div className="h-6 w-6 rounded-full bg-slate-800" />
-                    </Link>
-                  ),
-                )}
+                {[
+                  { name: "twitter", icon: Twitter },
+                  { name: "facebook", icon: Facebook },
+                  { name: "instagram", icon: Instagram },
+                  { name: "github", icon: Github },
+                  { name: "linkedin", icon: Linkedin },
+                ].map(({ name, icon: Icon }) => (
+                  <Link
+                    key={name}
+                    href="#"
+                    className="text-slate-400 hover:text-white"
+                  >
+                    <span className="sr-only">{name}</span>
+                    <div className="h-6 w-6 rounded-full bg-slate-800 flex items-center justify-center">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
             <div className="space-y-4">
